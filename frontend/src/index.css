@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Plain-CSS fallback (with !important) so gold buttons never render
+   invisible if Tailwind classes fail to load — lesson from Project 1
+   (v0.9.1 landing fix: stale build showed a blank white hero). */
+.hero-gold-btn {
+  background-color: #c8a24b !important;
+  color: #0b3d2e !important;
+}

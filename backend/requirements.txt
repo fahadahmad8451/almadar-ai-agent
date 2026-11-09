@@ -1,0 +1,38 @@
+# Al Madar Holding — Enterprise AI Agent (Project 2, Setup v0.1)
+# Local-first, no Docker. Only the dependencies Setup needs; agent,
+# OCR and scheduling libraries arrive with their sprints.
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pydantic-settings==2.5.2
+SQLAlchemy==2.0.35
+python-multipart==0.0.12
+httpx==0.27.2
+pytest==8.3.3
+psycopg[binary]==3.3.8
+# Sprint 1 (added 2026-11-06): LangGraph for the agent supervisor and
+# PyJWT for httpOnly-cookie JWT auth (same hardened pattern as Project 1
+# v0.10: access 15 min + refresh 24 h, bcrypt 4.0.1 pinned).
+langgraph==0.2.62
+PyJWT==2.8.0
+email-validator==2.2.0
+# Sprint 2 (added 2026-11-06): real report exports — ReportLab for PDF,
+# openpyxl for XLSX (CSV uses the standard library).
+reportlab==4.2.5
+openpyxl==3.1.5
+# Sprint 3 (added 2026-11-06): APScheduler for scheduled runs and
+# PyMuPDF for PDF invoice text extraction.
+apscheduler==3.10.4
+PyMuPDF==1.24.10
+# PaddleOCR (scanned-image OCR) is OPTIONAL and NOT in the default
+# install: it needs PaddlePaddle, which is ~500 MB and does not run
+# on this VM (OneDNN executor error — see docs/SPRINT3.md). On a
+# machine where PaddlePaddle works, install it with:
+#   pip install paddleocr paddlepaddle
+# and set AMH_TRY_PADDLEOCR=1. The OCR service auto-detects it.
+apscheduler==3.10.4
+PyMuPDF==1.24.10
+# Auth (same hardened pattern as Project 1 v0.10): bcrypt pinned to
+# 4.0.1 — passlib 1.7.4 breaks with bcrypt >= 4.1.
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
